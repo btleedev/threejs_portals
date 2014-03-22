@@ -3,7 +3,6 @@ function Skybox(scene, location) {
 	var directions  = ["right", "left", "top", "bottom", "front", "back"];
 	var imageSuffix = ".jpg";
 	var skyGeometry = new THREE.CubeGeometry(Skybox.CUBE_LEN, Skybox.CUBE_LEN, Skybox.CUBE_LEN);	
-	console.log(Skybox.length);
 	
 	var materialArray = [];
 	for (var i = 0; i < 6; i++)

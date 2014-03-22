@@ -6,7 +6,7 @@ $(document).ready(function() {
 	document.body.appendChild(renderer.domElement);
 
 	var controls = new THREE.FirstPersonControls(camera);
-	controls.movementSpeed = 1;
+	controls.movementSpeed = 5;
 	controls.lookSpeed = 0.1;
 
 	var clock = new THREE.Clock();
@@ -27,6 +27,7 @@ $(document).ready(function() {
 	function render() {
 		requestAnimationFrame(render);
 		controls.update(clock.getDelta());
+		world.render();
 		renderer.render(scene, camera);
 	}
 
