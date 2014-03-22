@@ -12,7 +12,7 @@ function Sphere(scene, location) {
 }
 
 Sphere.prototype.render = function() {
-	this.sphere.rotation.y += 0.1;
+	//this.sphere.rotation.y += 0.1;
 
 }
 

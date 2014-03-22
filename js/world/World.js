@@ -1,4 +1,4 @@
-function World(scene) {
+function World(scene, camera, composer, renderer) {
 	this.scene = scene;
 	this.portalLocations = [];
 
@@ -7,19 +7,19 @@ function World(scene) {
 	var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 	var cube = new THREE.Mesh( geometry, material );
 	cube.position.x = 5;
-	//scene.add(cube);
+	scene.add(cube);
 
 	//world
-	this._addPortalsAndLocations();
-}
+	var sceneLocation = new THREE.Vector3(50, 0, 0);
+	var portalLocation = new THREE.Vector3(0, 0, 0);
+	this.portalLocations.push(new PortalLocation(scene, camera, portalLocation, sceneLocation));
 
-World.prototype._addPortalsAndLocations = function() {
-	var location = new THREE.Vector3(0, 0, 0);
-	this.portalLocations.push(new PortalLocation(this.scene, location));
+	this.mainScene = new Main(scene, camera, composer, renderer, this.portalLocations);
 }
 
 World.prototype.render = function() {
 	for (var i = 0; i < this.portalLocations.length; i++) {
 		this.portalLocations[i].render();
 	}
+	this.mainScene.render();
 }
