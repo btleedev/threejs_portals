@@ -14,7 +14,7 @@ function World(scene, camera, composer, renderer) {
 	var portalLocation = new THREE.Vector3(0, 0, 0);
 	this.portalLocations.push(new PortalLocation(scene, camera, portalLocation, sceneLocation));
 
-	this.mainScene = new Main(scene, camera, composer, renderer, this.portalLocations);
+	this.mainScene = new MainApp(scene, camera, composer, renderer, this.portalLocations);
 }
 
 World.prototype.render = function() {
